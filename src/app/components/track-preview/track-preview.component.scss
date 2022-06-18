@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 :host {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     background-color: dim($opal, 33);
     padding: setPadding(2);
     border-radius: 14px;
@@ -17,40 +17,63 @@
 }
 
 .cover-wrapper {
+
     .cover {
         background-color: $raisin-black;
         width: 150px;
         height: 150px;
         border-radius: 10px;
         transition: transform .2s;
+        @include shadow($raisin-black);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
             cursor: pointer;
-            transform: scale(1.1);
+            transform: scale(1.07);
+
+            svg {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        svg {
+            transform: scale(1.6);
+            opacity: .7;
+            transition: transform .2s, opacity .2s;
+            
+            path {
+                fill: $nyanza;
+            }
         }
 
     }
 
 }
+
 .description-wrapper {
     display: flex;
     flex-flow: column;
     padding: setPadding(1);
     gap: setPadding(1);
-    
+
     @include devices(small) {
         align-items: center;
     }
-    
+
     .header {
         font-size: larger;
         font-weight: bold;
     }
-    
+
     .styles {
         display: flex;
         flex-wrap: wrap;
         font-size: small;
+
         span {
             padding: 1px 8px;
             margin: setPadding(.5);
@@ -58,9 +81,11 @@
             border-radius: 10px;
         }
     }
+
     .actions-wrapper {
         display: flex;
         gap: setPadding(1);
+
         @include devices(small) {
             align-items: center;
         }
@@ -80,10 +105,12 @@
             svg path {
                 fill: $raisin-black;
             }
+
             &.share svg {
                 width: 24px;
                 height: 24px;
             }
+
             &.download svg {
                 width: 34px;
                 height: 34px;
