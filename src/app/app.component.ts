@@ -12,7 +12,7 @@ import { Style, Track } from './models';
 export class AppComponent implements OnInit {
 
   style = Style;
-  $selectedTrack: Observable<Track>;
+  selectedTrack: Track;
 
   trackList = [];
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     for (var i = 1; i <= 10; i++) {
       this.trackList.push(
         {
-          name: '#' + i,
+          name: 'test',
           styles: [Style.aggressive, Style.chill, Style.dark],
           source: '../assets/trakcs/ice.mp3',
         }
@@ -30,9 +30,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.$selectedTrack = this.route.queryParams.pipe(
-      map(params => params['track']),
-      map(name => this.trackList.find(track => track.name === name)),
-    )
+    console.log(this.route.snapshot.params['track']);
+    const trackName = this.route.snapshot.params['track'];
+    this.selectedTrack = this.trackList.find(track => track.name === trackName);
   }
 }
