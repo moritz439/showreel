@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+
+$raisin-black: #1d1e2cff; // text 
+$opera-mauve: #ba7ba1ff; // preview
+$opal: #abc8c0ff;
+$granny-smith-apple: #9ee493ff; // text light
+$nyanza: #daf7dcff; // background
+
+@function setPadding($amount) {
+    $atom: 8;
+    @return ($amount * $atom) * 1px;
+}
+
+@function dim($color, $opacity) {
+    @return $color+#{$opacity};
+}
+
+@mixin shadow($color) {
+    box-shadow: 0px 10px 15px -5px dim(#{$color}, 35);
+}
+
+@font-face {
+    font-family: 'Titillium';
+    src: url('./assets/TitilliumWeb-Light.ttf') format('truetype');
+}
+
+@mixin devices ($breakpoint) { //the name of the mixin is devices
+  
+    @if $breakpoint == wide {    
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+ 
+  @if $breakpoint == small {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+
+
+body {
+    margin: 0;
+    background-color: $nyanza;
+    color: $raisin-black;
+    font-family: 'Titillium';
+}
+html {
+    min-height: 100vh;
+    box-sizing: border-box;
+}

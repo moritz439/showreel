@@ -1,0 +1,38 @@
+@import '../styles.scss';
+
+
+.main-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    app-header-section {
+        height: 66vh;
+    }
+
+
+}
+
+
+
+
+.track-preview-wrapper {
+    padding: setPadding(2);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: setPadding(2);
+
+
+    app-track-preview {
+        width: calc(50% - 8px);
+    }
+
+    @include devices(wide) {
+        
+    app-track-preview {
+        width: calc(33% - 8px);
+    }
+    }
+
+}

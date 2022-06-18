@@ -1,0 +1,93 @@
+@import '../../../styles.scss';
+
+:host {
+    box-sizing: border-box; 
+    background-color: dim($opal, 33);
+    padding: setPadding(2);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: row;
+    gap: setPadding(1);
+
+    @include devices(small) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.cover-wrapper {
+    .cover {
+        background-color: $raisin-black;
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        transition: transform .2s;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+    }
+
+}
+.description-wrapper {
+    display: flex;
+    flex-flow: column;
+    padding: setPadding(1);
+    gap: setPadding(1);
+    
+    @include devices(small) {
+        align-items: center;
+    }
+    
+    .header {
+        font-size: larger;
+        font-weight: bold;
+    }
+    
+    .styles {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: small;
+        span {
+            padding: 1px 8px;
+            margin: setPadding(.5);
+            background-color: dim($raisin-black, 11);
+            border-radius: 10px;
+        }
+    }
+    .actions-wrapper {
+        display: flex;
+        gap: setPadding(1);
+        @include devices(small) {
+            align-items: center;
+        }
+
+        button {
+            margin: 0;
+            padding: 0;
+            background-color: #0000;
+            border: none;
+            transition: transform .2s;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+            }
+
+            svg path {
+                fill: $raisin-black;
+            }
+            &.share svg {
+                width: 24px;
+                height: 24px;
+            }
+            &.download svg {
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+}
