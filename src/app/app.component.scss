@@ -12,34 +12,57 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        app-track-preview {
-            width: 400px;
+
+        .arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            svg {
+                width: 42px;
+                height: 42px;
+                position: absolute;
+                animation: wiggle 10s infinite;
+                path {
+                    fill: dim($raisin-black, 22);
+                }
+            }
         }
     }
 }
 
 
-
-
 .track-preview-wrapper {
     padding: setPadding(2);
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: setPadding(2);
-    max-width: 1400px;
-    
+    gap: setPadding(3);
 
     app-track-preview {
-        width: calc(50% - 8px);
+
+        width: min(450px, 100%);
     }
 
-    @include devices(wide) {
-        gap: setPadding(3);
-        app-track-preview {
-            min-width: 300px;
-            width: calc(33% - 16px);
-        }
+}
+
+@keyframes wiggle {
+    0% {
+        opacity: 0;
     }
 
+    70% {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+
+    90% {
+        transform: translateY(150px);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(150px);
+        opacity: 0;
+    }
 }

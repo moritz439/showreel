@@ -1,38 +1,39 @@
 @import '../../../styles.scss';
 
 .main-wrapper {
-    box-sizing: border-box;
     background-color: dim($opal, 33);
     padding: setPadding(2);
     border-radius: 14px;
 
     display: flex;
-    
+
     flex-direction: row;
     gap: setPadding(1);
 
     &.showcase {
         background-color: #0000;
         flex-direction: column;
+        justify-content: center;
+
         align-items: center;
+
         .description-wrapper {
             align-items: center;
         }
+        .cover {
+            width: 200px;
+            height: 200px;
+        }
     }
 
-
-    @include devices(small) {
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 .cover-wrapper {
 
     .cover {
         background-color: $raisin-black;
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
         border: none;
         border-radius: 10px;
         transition: transform .2s;
@@ -42,7 +43,8 @@
         justify-content: center;
         align-items: center;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             cursor: pointer;
             transform: scale(1.07);
 
@@ -70,9 +72,7 @@
     padding: setPadding(1);
     gap: setPadding(1);
 
-    @include devices(small) {
-        align-items: center;
-    }
+
 
     .header {
         font-size: larger;
@@ -96,9 +96,6 @@
         display: flex;
         gap: setPadding(1);
 
-        @include devices(small) {
-            align-items: center;
-        }
 
         button {
             margin: 0;
