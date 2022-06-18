@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .main-wrapper {
-    background-color: dim($opal, 33);
+    background-color: dim($color-dark-mid, 22);
     padding: setPadding(2);
     border-radius: 14px;
 
@@ -20,6 +20,7 @@
         .description-wrapper {
             align-items: center;
         }
+
         .cover {
             width: 200px;
             height: 200px;
@@ -36,24 +37,22 @@
         position: relative;
         border-radius: 10px;
         transition: transform .2s;
-        @include shadow($raisin-black);
         overflow: hidden;
 
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $raisin-black;
+
 
 
         .shadow {
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-            filter: blur(20px);
-            opacity: .6;
-            background-color: $raisin-black;
+            $background-color: $color-dark-mid;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, dim($background-color, 33) 0%, $background-color 65%, $background-color 100%);     
             position: absolute;
         }
+
         &:hover,
         &:focus {
             cursor: pointer;
@@ -67,22 +66,22 @@
 
 
         img {
+            border-radius: 10px;
             display: block;
             position: absolute;
-            width: 100%;
-            height: 100%;
-            filter: blur(3px) brightness(40%) contrast(80%);
-            background: radial-gradient(rgba(0,0,0,0), $raisin-black);
+            width: 130%;
+            height: 130%;
+            filter: blur(3px) brightness(.4);
         }
-    
+
 
         svg {
             transform: scale(1.6);
-            opacity: .6;
+            opacity: .8;
             transition: transform .2s, opacity .2s;
 
             path {
-                fill: $nyanza;
+                fill: $color-light;
             }
         }
     }
@@ -93,8 +92,6 @@
     flex-flow: column;
     padding: setPadding(1);
     gap: setPadding(1);
-
-
 
     .header {
         font-size: larger;
@@ -109,7 +106,7 @@
         span {
             padding: 1px 8px;
             margin: setPadding(.5);
-            background-color: dim($raisin-black, 11);
+            background-color: dim($color-dark-mid, 99);
             border-radius: 10px;
         }
     }
@@ -135,7 +132,7 @@
                 display: block;
 
                 path {
-                    fill: $raisin-black;
+                    fill: $color-light;
                 }
             }
 

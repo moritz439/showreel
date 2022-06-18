@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-$raisin-black: #1d1e2cff; // text 
-$opera-mauve: #ba7ba1ff; // preview
-$opal: #abc8c0ff;
-$granny-smith-apple: #9ee493ff; // text light
-$nyanza: #daf7dcff; // background
+$color-dark: #0c0c0c; // text 
+$color-dark-mid: #303030; // preview
+$color-light-mid: #8c8c8c;
+$color-light: #9c9c9c; // text light
+
+
 
 @function setPadding($amount) {
     $atom: 8;
@@ -16,7 +17,7 @@ $nyanza: #daf7dcff; // background
 }
 
 @mixin shadow($color) {
-    box-shadow: 0px 10px 10px -5px dim(#{$color}, 35);
+    box-shadow: 0px 10px 15px -5px dim(#{$color}, 35);
 }
 
 @font-face {
@@ -43,8 +44,8 @@ $nyanza: #daf7dcff; // background
 
 body {
     margin: 0;
-    background-color: $nyanza;
-    color: $raisin-black;
+    background-color: $color-dark;
+    color: $color-light-mid;
     font-family: 'Titillium';
 }
 html {

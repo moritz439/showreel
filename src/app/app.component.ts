@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
         {
           name: '#' + i,
           styles: [Style.aggressive, Style.chill, Style.dark],
-          source: '',
+          source: '../assets/trakcs/ice.mp3',
         }
       )
     }

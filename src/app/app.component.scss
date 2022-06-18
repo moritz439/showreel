@@ -22,7 +22,7 @@
                 position: absolute;
                 animation: wiggle 10s infinite;
                 path {
-                    fill: dim($raisin-black, 22);
+                    fill: dim($color-dark, 22);
                 }
             }
         }
@@ -31,6 +31,7 @@
 
 
 .track-preview-wrapper {
+    max-width: 1700px;
     padding: setPadding(2);
     display: flex;
     justify-content: center;
