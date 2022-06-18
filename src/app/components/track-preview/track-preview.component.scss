@@ -30,19 +30,32 @@
 
 .cover-wrapper {
 
+  
+
     .cover {
-        background-color: $raisin-black;
         width: 160px;
         height: 160px;
         border: none;
+        position: relative;
         border-radius: 10px;
         transition: transform .2s;
         @include shadow($raisin-black);
+        overflow: hidden;
 
         display: flex;
         justify-content: center;
         align-items: center;
 
+
+        .shadow {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            filter: blur(20px);
+            opacity: .6;
+            background-color: black;
+            position: absolute;
+        }
         &:hover,
         &:focus {
             cursor: pointer;
@@ -53,6 +66,17 @@
                 opacity: 1;
             }
         }
+
+
+        img {
+            display: block;
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            filter: blur(3px) brightness(50%) contrast(80%);
+            background: radial-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+        }
+    
 
         svg {
             transform: scale(1.6);
