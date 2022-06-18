@@ -14,7 +14,9 @@
     </ng-template>
   </div>  
   <div class="track-preview-wrapper">
-    <app-track-preview *ngFor="let track of trackList" [track]="track"></app-track-preview>
+    <div class="flex-container">
+      <app-track-preview *ngFor="let track of trackList" [track]="track"></app-track-preview>
+    </div>
 
   </div>
 </div>

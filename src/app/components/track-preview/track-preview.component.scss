@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .main-wrapper {
-    background-color: dim($color-dark-mid, 22);
+    background-color: dim($color-dark-mid, 40);
     padding: setPadding(2);
     border-radius: 14px;
 
@@ -9,6 +9,7 @@
 
     flex-direction: row;
     gap: setPadding(1);
+    max-width: 1700px;
 
     &.showcase {
         background-color: #0000;
@@ -81,7 +82,7 @@
             transition: transform .2s, opacity .2s;
 
             path {
-                fill: $color-light;
+                fill: $color-light-mid;
             }
         }
     }
@@ -132,7 +133,7 @@
                 display: block;
 
                 path {
-                    fill: $color-light;
+                    fill: $color-light-mid;
                 }
             }
 

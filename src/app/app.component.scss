@@ -7,6 +7,8 @@
     flex-direction: column;
 
     .header-section {
+        width: 100%;
+        box-shadow: 0px -19px 32px 15px dim($color-dark, aa);
         height: 66vh;
         display: flex;
         flex-direction: column;
@@ -16,11 +18,13 @@
         .arrow-wrapper {
             display: flex;
             justify-content: center;
+
             svg {
                 width: 42px;
                 height: 42px;
                 position: absolute;
                 animation: wiggle 10s infinite;
+
                 path {
                     fill: dim($color-dark, 22);
                 }
@@ -31,9 +35,20 @@
 
 
 .track-preview-wrapper {
-    max-width: 1700px;
-    padding: setPadding(2);
+    .flex-container {
+        max-width: 1700px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: setPadding(3);
+    }
+
+    background-color: dim($color-dark-mid, 10);
+    padding: setPadding(3);
     display: flex;
+    width: 100vw;
+    box-sizing: border-box;
+
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
