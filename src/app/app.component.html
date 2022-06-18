@@ -1,15 +1,16 @@
-
 <div class="main-wrapper">
+  <div class="header-section">
+    <ng-container *ngIf="($selectedTrack | async) as selectedTrack; else simpleHeader">
 
-  <app-header-section></app-header-section>
+      <h1>check diesen Beat</h1>
+      <app-track-preview [track]="selectedTrack" [showcase]="true"></app-track-preview>
+    </ng-container>
+    <ng-template #simpleHeader>
+      <h1>check meine Beats</h1>
+    </ng-template>
+  </div>  
   <div class="track-preview-wrapper">
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
-    <app-track-preview></app-track-preview>
+    <app-track-preview *ngFor="let track of trackList" [track]="track"></app-track-preview>
+
   </div>
 </div>

@@ -6,11 +6,16 @@
     align-items: center;
     flex-direction: column;
 
-    app-header-section {
+    .header-section {
         height: 66vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        app-track-preview {
+            width: 400px;
+        }
     }
-
-
 }
 
 
@@ -22,17 +27,19 @@
     flex-wrap: wrap;
     flex-direction: row;
     gap: setPadding(2);
-
+    max-width: 1400px;
+    
 
     app-track-preview {
         width: calc(50% - 8px);
     }
 
     @include devices(wide) {
-        
-    app-track-preview {
-        width: calc(33% - 8px);
-    }
+        gap: setPadding(3);
+        app-track-preview {
+            min-width: 300px;
+            width: calc(33% - 16px);
+        }
     }
 
 }

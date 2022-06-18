@@ -1,14 +1,25 @@
 @import '../../../styles.scss';
 
-:host {
+.main-wrapper {
     box-sizing: border-box;
     background-color: dim($opal, 33);
     padding: setPadding(2);
     border-radius: 14px;
 
     display: flex;
+    
     flex-direction: row;
     gap: setPadding(1);
+
+    &.showcase {
+        background-color: #0000;
+        flex-direction: column;
+        align-items: center;
+        .description-wrapper {
+            align-items: center;
+        }
+    }
+
 
     @include devices(small) {
         flex-direction: column;
@@ -22,6 +33,7 @@
         background-color: $raisin-black;
         width: 150px;
         height: 150px;
+        border: none;
         border-radius: 10px;
         transition: transform .2s;
         @include shadow($raisin-black);
@@ -30,7 +42,7 @@
         justify-content: center;
         align-items: center;
 
-        &:hover {
+        &:hover, &:focus {
             cursor: pointer;
             transform: scale(1.07);
 
@@ -42,16 +54,14 @@
 
         svg {
             transform: scale(1.6);
-            opacity: .7;
+            opacity: .6;
             transition: transform .2s, opacity .2s;
-            
+
             path {
                 fill: $nyanza;
             }
         }
-
     }
-
 }
 
 .description-wrapper {
@@ -92,18 +102,23 @@
 
         button {
             margin: 0;
-            padding: 0;
+            padding: 4px;
             background-color: #0000;
             border: none;
             transition: transform .2s;
+
 
             &:hover {
                 cursor: pointer;
                 transform: scale(1.2);
             }
 
-            svg path {
-                fill: $raisin-black;
+            svg {
+                display: block;
+
+                path {
+                    fill: $raisin-black;
+                }
             }
 
             &.share svg {
