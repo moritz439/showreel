@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable, OnInit } from '@angular/core';
+import { HostListener, Inject, Injectable, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { Track } from '../models';
@@ -13,7 +13,6 @@ export interface ShareConfig {
   providedIn: 'root'
 })
 export class ShareService {
-
 
   activeConfigSubject: Subject<ShareConfig> = new Subject();
   $isOpen: Observable<boolean>;

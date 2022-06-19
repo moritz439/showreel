@@ -1,5 +1,5 @@
 import { animate, query, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ShareConfig, ShareService } from 'src/app/services/share.service';
 
@@ -28,6 +28,10 @@ import { ShareConfig, ShareService } from 'src/app/services/share.service';
 export class ShareComponent implements OnInit {
 
   $activeConfig: Observable<ShareConfig>;
+
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    this.close();
+  }
 
   constructor(private shareService: ShareService) { }
 
