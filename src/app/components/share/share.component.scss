@@ -1,0 +1,49 @@
+@import '../../../styles.scss';
+
+
+.main-wrapper {
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: dim($color-dark, dd);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    gap: setPadding(2);
+
+    button.close {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: setPadding(1);
+        background-color: #0000;
+        margin: 0;
+        display: block;
+        border: none;
+        cursor: pointer;  
+
+        svg {
+            width: 64px;
+            height: 64px;
+
+            path {
+                fill: $color-dark-mid
+            }
+        }
+    }
+
+    .qr-code-wrapper {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        background-color: $color-dark-mid;
+    }
+    .url-wrapper {
+        font-size: larger;
+        font-weight: bold;
+    }
+}

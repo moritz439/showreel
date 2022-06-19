@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Style, Track } from 'src/app/models';
+import { ShareService } from 'src/app/services/share.service';
 import { TrackService } from 'src/app/services/track.service';
 
 @Component({
@@ -13,12 +14,16 @@ export class TrackPreviewComponent implements OnInit {
   @Input() showcase: boolean = false;
   styleList = Style;
 
-  constructor(private trackService: TrackService) { }
+  constructor(private trackService: TrackService, private shareService: ShareService) { }
 
   ngOnInit(): void {
   }
 
   play() {
     this.trackService.play(this.track.name);
+  }
+
+  share() {
+    this.shareService.shareTrack(this.track);
   }
 }

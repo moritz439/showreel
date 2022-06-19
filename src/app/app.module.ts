@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TrackPreviewComponent } from './components/track-preview/track-preview.component';
 import { PreviewComponent } from './components/preview/preview.component';
+import { ShareComponent } from './components/share/share.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrackPreviewComponent,
     PreviewComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
