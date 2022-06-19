@@ -35,8 +35,15 @@
             }
         }
     }
-
-    qr-code {
-        display: block;
+    .header {
+        font-weight: bold;
+    }
+    .url-wrapper {
+        font-size: large;
+    }
+    .qr-code-wrapper {
+        qr-code {
+            display: block;
+        }
     }
 }

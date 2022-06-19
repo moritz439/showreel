@@ -1,4 +1,6 @@
-import { Injectable, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { Track } from '../models';
 
@@ -12,10 +14,17 @@ export interface ShareConfig {
 })
 export class ShareService {
 
+
   activeConfigSubject: Subject<ShareConfig> = new Subject();
+  $isOpen: Observable<boolean>;
 
+  constructor(@Inject(DOCUMENT) private _document) {
+    this.activeConfigSubject.pipe(map(v => (!!v))).subscribe(isOpen => {
+      this._document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    });
+  }
 
-  shareTrack(track: Track) {    
+  shareTrack(track: Track) {
     this.activeConfigSubject.next({
       header: track.name,
       url: window.location.origin + '/' + track.name
@@ -24,7 +33,8 @@ export class ShareService {
 
   sharePage() {
     this.activeConfigSubject.next({
-      url:  window.location.origin
+      header: 'Demo Beats',
+      url: window.location.origin
     })
   }
 

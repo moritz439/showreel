@@ -1,7 +1,7 @@
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ShareService } from 'src/app/services/share.service';
+import { map, Observable } from 'rxjs';
+import { ShareConfig, ShareService } from 'src/app/services/share.service';
 
 @Component({
   selector: 'app-share',
@@ -11,13 +11,13 @@ import { ShareService } from 'src/app/services/share.service';
     trigger('fade', [,
       transition(':enter',
         [
-          query('qr-code', style({ 'opacity': 0 })),
+          query('qr-code, span, .header', style({ 'opacity': 0 })),
           style({ 'opacity': 0 }),
-          animate('200ms ease', style({ opacity: 1 })),
-          query('qr-code', [
+          animate('100ms ease', style({ opacity: 1 })),
+          query('qr-code, span, .header', [
             style({ 'opacity': 0 }),
-            animate('100ms ease-out', style({ 'opacity': 1, 'transform': 'scale(1.2)' })),
-            animate('200ms ease-in', style({ 'opacity': 1, 'transform': 'scale(1)' }))
+            animate('100ms ease', style({ 'opacity': .4, 'transform': 'scale(1.2)' })),
+            animate('300ms ease', style({ 'opacity': 1, 'transform': 'scale(1)' }))
           ])
         ]),
       transition(':leave',
@@ -27,14 +27,13 @@ import { ShareService } from 'src/app/services/share.service';
 })
 export class ShareComponent implements OnInit {
 
-  $activeConfig: Observable<any>;
+  $activeConfig: Observable<ShareConfig>;
 
   constructor(private shareService: ShareService) { }
 
   ngOnInit(): void {
     this.$activeConfig = this.shareService.getConfig();
   }
-
 
   close() {
     this.shareService.close();

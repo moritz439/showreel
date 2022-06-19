@@ -1,19 +1,22 @@
 <div class="main-wrapper" *ngIf="$activeConfig | async as config" @fade>
-    <div *ngIf="config.header">
-        <span>
-            {{ config.header }}
-        </span>
-    </div>
+
     <button class="close" (click)="close()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 24 24" width="24"
             fill="currentColor">
             <path
                 d="M7.314 5.9l3.535-3.536A1 1 0 1 0 9.435.95L5.899 4.485 2.364.95A1 1 0 1 0 .95 2.364l3.535 3.535L.95 9.435a1 1 0 1 0 1.414 1.414l3.535-3.535 3.536 3.535a1 1 0 1 0 1.414-1.414L7.314 5.899z">
             </path>
-        </svg></button>
-        <div class="qr-code-wrapper">
+        </svg>
+    </button>
+    
+    <span class="header" *ngIf="config.header">
+        {{ config.header }}
+</span>
+    <div class="qr-code-wrapper">
 
-            <qr-code [value]="config.url" [darkColor]="'#8C8C8C99'" [lightColor]="'#0000'" [margin]="0" [size]="150"></qr-code>
-        </div>
+        <qr-code [value]="config.url" [darkColor]="'#8C8C8C99'" [lightColor]="'#0000'" [margin]="0" [size]="150">
+        </qr-code>
+    </div>
+    
     <span class="url-wrapper">
         {{ config.url }}
     </span>

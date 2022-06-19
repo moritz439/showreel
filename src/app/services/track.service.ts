@@ -18,7 +18,7 @@ export class TrackService {
     this.tracks.push(
       ...this.trackList
     );
-    for (var i = 1; i <= 6; i++) {
+    for (var i = 1; i <= 4; i++) {
       this.tracks.push(
         {
           name: 'test',
