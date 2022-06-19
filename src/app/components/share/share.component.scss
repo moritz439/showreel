@@ -29,9 +29,10 @@
         svg {
             width: 64px;
             height: 64px;
+            @include hover;
 
             path {
-                fill: $color-dark-mid
+                fill: $color-light-mid;
             }
         }
     }

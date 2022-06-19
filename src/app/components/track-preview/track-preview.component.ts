@@ -20,7 +20,7 @@ export class TrackPreviewComponent implements OnInit {
   }
 
   play() {
-    this.trackService.play(this.track.name);
+    this.trackService.play(this.track);
   }
 
   share() {

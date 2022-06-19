@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { TrackList } from 'src/assets/trackList';
 import { Style, Track } from '../models';
 
@@ -9,12 +10,16 @@ export class TrackService {
 
   private tracks = [];
   currentAudio: HTMLAudioElement;
-  currentSource: string;
+  currentTrack: Track;
   isPaused = true;
+  private isPausedSubject: Subject<boolean> = new Subject();
 
+  private $nowPlaying: Subject<Track> = new Subject();
+  
   trackList: Track[] = TrackList;
 
   constructor() {
+    this.isPausedSubject.next(true);
     this.tracks.push(
       ...this.trackList
     );
@@ -27,23 +32,30 @@ export class TrackService {
         }
       )
     }
-
   }
 
   getTracks(): Track[] {
     return this.tracks;
   }
 
+  getNowPlaying() {
+    return this.$nowPlaying.asObservable();
+  }
+
+  getPausedState() {
+    return this.isPausedSubject.asObservable();
+  }
+
   getTrackByName(name: string): Track {
     return this.tracks.find(track => track.name === name);
   }
 
-  play(name: string) {
-    const source = this.getTrackByName(name).source;
+  play(track?: Track) {
     if (this.isPaused) {
-      if (source !== this.currentSource) {
-        this.currentSource = source;
-        this.currentAudio = new Audio(source);
+      if (track && track.name !== this.currentTrack?.name) {
+        this.currentTrack = track;
+        this.$nowPlaying.next(track);
+        this.currentAudio = new Audio(track.source);
       }
       this.isPaused = false;
       this.currentAudio.play();
@@ -51,6 +63,11 @@ export class TrackService {
       this.isPaused = true;
       this.currentAudio.pause();
     }
+    this.isPausedSubject.next(this.isPaused);
+  }
+
+  stop() {
+    this.$nowPlaying.next(null);
   }
 
 

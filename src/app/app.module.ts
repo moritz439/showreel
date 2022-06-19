@@ -7,7 +7,8 @@ import { TrackPreviewComponent } from './components/track-preview/track-preview.
 import { PreviewComponent } from './components/preview/preview.component';
 import { ShareComponent } from './components/share/share.component';
 import { QrCodeModule } from 'ng-qrcode';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { PlayerComponent } from './components/player/player.component'
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
     TrackPreviewComponent,
     PreviewComponent,
     ShareComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,

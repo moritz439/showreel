@@ -120,13 +120,8 @@
             padding: 0;
             background-color: #0000;
             border: none;
-            transition: transform .2s;
-
-
-            &:hover {
-                cursor: pointer;
-                transform: scale(1.2);
-            }
+      
+            @include hover;
 
             svg {
                 display: block;

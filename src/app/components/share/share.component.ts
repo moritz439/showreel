@@ -21,7 +21,7 @@ import { ShareConfig, ShareService } from 'src/app/services/share.service';
           ])
         ]),
       transition(':leave',
-        animate(300, style({ opacity: 0 })))
+        animate(100, style({ 'opacity': 0 })))
     ])
   ]
 })
