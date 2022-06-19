@@ -92,7 +92,7 @@
     display: flex;
     flex-flow: column;
     padding: setPadding(1);
-    gap: setPadding(2);
+    gap: setPadding(1);
 
     .header {
         font-size: larger;
@@ -103,7 +103,7 @@
         display: flex;
         flex-wrap: wrap;
         font-size: small;
-        gap: setPadding(.5);
+        gap: setPadding(1);
         span {
             padding: 1px 8px;
             background-color: dim($color-dark-mid, 99);

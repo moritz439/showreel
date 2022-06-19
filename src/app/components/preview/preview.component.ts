@@ -16,6 +16,7 @@ export class PreviewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private trackService: TrackService) { }
 
   ngOnInit(): void {
+    
     const trackList = this.trackService.getTracks();
     this.$selectedTrack = this.route.params.pipe(
       map(params => params['track']),

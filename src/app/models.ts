@@ -1,5 +1,5 @@
 export enum Style {
-    dark, aggressive, chill, happy
+    dark, aggressive, chill, happy, hard
 }
 
 export interface Track {

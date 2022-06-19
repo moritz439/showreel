@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TrackList } from 'src/assets/trackList';
 import { Style, Track } from '../models';
 
 @Injectable({
@@ -11,8 +12,13 @@ export class TrackService {
   currentSource: string;
   isPaused = true;
 
+  trackList: Track[] = TrackList;
+
   constructor() {
-    for (var i = 1; i <= 10; i++) {
+    this.tracks.push(
+      ...this.trackList
+    );
+    for (var i = 1; i <= 2; i++) {
       this.tracks.push(
         {
           name: 'test',
@@ -21,6 +27,7 @@ export class TrackService {
         }
       )
     }
+
   }
 
   getTracks(): Track[] {
