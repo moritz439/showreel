@@ -31,7 +31,8 @@ export class TrackService {
     return this.tracks.find(track => track.name === name);
   }
 
-  play(source: string) {
+  play(name: string) {
+    const source = this.getTrackByName(name).source;
     if (this.isPaused) {
       if (source !== this.currentSource) {
         this.currentSource = source;
@@ -40,12 +41,10 @@ export class TrackService {
       this.isPaused = false;
       this.currentAudio.play();
     } else {
-      this.pause();
+      this.isPaused = true;
+      this.currentAudio.pause();
     }
   }
 
-  pause() {
-    this.isPaused = true;
-    this.currentAudio.pause();
-  }
+
 }

@@ -19,11 +19,6 @@ export class TrackPreviewComponent implements OnInit {
   }
 
   play() {
-    this.trackService.play(this.track.source);
+    this.trackService.play(this.track.name);
   }
-
-  pause() {
-    this.trackService.pause();
-  }
-
 }

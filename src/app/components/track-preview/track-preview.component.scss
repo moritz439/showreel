@@ -92,7 +92,7 @@
     display: flex;
     flex-flow: column;
     padding: setPadding(1);
-    gap: setPadding(1);
+    gap: setPadding(2);
 
     .header {
         font-size: larger;
@@ -103,10 +103,9 @@
         display: flex;
         flex-wrap: wrap;
         font-size: small;
-
+        gap: setPadding(.5);
         span {
             padding: 1px 8px;
-            margin: setPadding(.5);
             background-color: dim($color-dark-mid, 99);
             border-radius: 10px;
         }
@@ -118,7 +117,7 @@
 
         button, a {
             margin: 0;
-            padding: 4px;
+            padding: 0;
             background-color: #0000;
             border: none;
             transition: transform .2s;
