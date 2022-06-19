@@ -1,0 +1,8 @@
+<ng-container *ngIf="$selectedTrack | async as track; else notFound">
+    <h2>dir wurde dieser beat geteilt</h2>
+    <app-track-preview [showcase]="true" [track]="track">
+    </app-track-preview>
+</ng-container>
+<ng-template #notFound>
+    <h1>dieser Beat ist nicht mehr online</h1>
+</ng-template>

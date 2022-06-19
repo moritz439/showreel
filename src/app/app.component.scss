@@ -14,6 +14,23 @@
         align-items: center;
         justify-content: center;
 
+        h1 {
+            margin: setPadding(1);
+        }
+        svg {
+            transition: transform .2s, opacity .2s;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+            opacity: .5;
+            width: 30px;
+            height: 39px;
+            path {
+                fill: dim($color-light, 88);
+            }
+        }
         .arrow-wrapper {
             display: flex;
             justify-content: center;
@@ -22,7 +39,7 @@
                 width: 42px;
                 height: 42px;
                 position: absolute;
-                animation: wiggle 10s infinite;
+                animation: wiggle 7s infinite;
 
                 path {
                     fill: dim($color-light, 22);

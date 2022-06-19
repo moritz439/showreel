@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Style, Track } from 'src/app/models';
+import { TrackService } from 'src/app/services/track.service';
 
 @Component({
   selector: 'app-track-preview',
@@ -12,13 +13,17 @@ export class TrackPreviewComponent implements OnInit {
   @Input() showcase: boolean = false;
   styleList = Style;
 
-  constructor() { }
+  constructor(private trackService: TrackService) { }
 
   ngOnInit(): void {
   }
 
   play() {
-    
+    this.trackService.play(this.track.source);
+  }
+
+  pause() {
+    this.trackService.pause();
   }
 
 }

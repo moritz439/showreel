@@ -22,6 +22,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.trackList = this.trackService.getTracks();
-  
   }
 }

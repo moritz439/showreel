@@ -1,16 +1,27 @@
 <div class="main-wrapper">
   <div class="header-section">
-    
+
     <router-outlet #routerOutlet="outlet"></router-outlet>
 
     <ng-container *ngIf="!routerOutlet.isActivated">
-      <h1>check meine Beats</h1>
+      <h1>
+        meine Beats
+      </h1>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" width="24" fill="currentColor">
+        <path
+          d="M16 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM7.928 9.24a4.02 4.02 0 0 1-.026 1.644l5.04 2.537a4 4 0 1 1-.867 1.803l-5.09-2.562a4 4 0 1 1 .083-5.228l5.036-2.522a4 4 0 1 1 .929 1.772L7.928 9.24zM4 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z">
+        </path>
+      </svg>
       <div class="arrow-wrapper">
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -4.5 24 24" width="24" fill="currentColor"><path d="M8 11.243l3.95-3.95a1 1 0 1 1 1.414 1.414l-5.657 5.657a.997.997 0 0 1-1.414 0L.636 8.707A1 1 0 1 1 2.05 7.293L6 11.243V1.657a1 1 0 1 1 2 0v9.586z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -4.5 24 24" width="24" fill="currentColor">
+          <path
+            d="M8 11.243l3.95-3.95a1 1 0 1 1 1.414 1.414l-5.657 5.657a.997.997 0 0 1-1.414 0L.636 8.707A1 1 0 1 1 2.05 7.293L6 11.243V1.657a1 1 0 1 1 2 0v9.586z">
+          </path>
+        </svg>
       </div>
     </ng-container>
-  </div>  
+  </div>
   <div class="track-preview-wrapper">
     <div class="flex-container">
       <app-track-preview *ngFor="let track of trackList" [track]="track"></app-track-preview>
