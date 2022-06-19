@@ -12,17 +12,14 @@ export interface ShareConfig {
 })
 export class ShareService {
 
-  url: string; 
   activeConfigSubject: Subject<ShareConfig> = new Subject();
 
-  constructor() { }
 
   shareTrack(track: Track) {    
     this.activeConfigSubject.next({
       header: track.name,
       url: window.location.origin + '/' + track.name
     })
-    
   }
 
   sharePage() {

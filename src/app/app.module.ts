@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { TrackPreviewComponent } from './components/track-preview/track-preview.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { ShareComponent } from './components/share/share.component';
+import { QrCodeModule } from 'ng-qrcode';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 @NgModule({
   declarations: [
     AppComponent,
     TrackPreviewComponent,
     PreviewComponent,
-    ShareComponent
+    ShareComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    QrCodeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(20px);
-    gap: setPadding(2);
+    gap: setPadding(3);
 
     button.close {
         position: fixed;
@@ -36,14 +36,7 @@
         }
     }
 
-    .qr-code-wrapper {
-        width: 150px;
-        height: 150px;
-        border-radius: 10px;
-        background-color: $color-dark-mid;
-    }
-    .url-wrapper {
-        font-size: larger;
-        font-weight: bold;
+    qr-code {
+        display: block;
     }
 }
