@@ -15,7 +15,7 @@ export class TrackService {
   private isPausedSubject: Subject<boolean> = new Subject();
 
   private $nowPlaying: Subject<Track> = new Subject();
-  
+
   trackList: Track[] = TrackList;
 
   constructor() {
@@ -32,6 +32,15 @@ export class TrackService {
         }
       )
     }
+    this.$nowPlaying.subscribe(track => this.currentTrack = track);
+    this.isPausedSubject.subscribe(isPaused => {
+      this.isPaused = isPaused;
+      if (isPaused) {
+        this.currentAudio.pause();
+      } else {
+        this.currentAudio.play();
+      }
+    });
   }
 
   getTracks(): Track[] {
@@ -51,23 +60,25 @@ export class TrackService {
   }
 
   play(track?: Track) {
-    if (this.isPaused) {
-      if (track && track.name !== this.currentTrack?.name) {
-        this.currentTrack = track;
-        this.$nowPlaying.next(track);
-        this.currentAudio = new Audio(track.source);
-      }
-      this.isPaused = false;
-      this.currentAudio.play();
+
+    // neuer track -> neuen spielen
+    if (track && track.name !== this.currentTrack?.name) {
+      this.$nowPlaying.next(track);
+      this.currentAudio = new Audio(track.source);
+      this.isPausedSubject.next(false);
+
+    } else if (track && track.name === this.currentTrack?.name && !this.isPaused) {
+      this.isPausedSubject.next(true);
+    } else if (this.isPaused) {
+      this.isPausedSubject.next(false);
     } else {
-      this.isPaused = true;
-      this.currentAudio.pause();
+      this.isPausedSubject.next(true);
     }
-    this.isPausedSubject.next(this.isPaused);
   }
 
   stop() {
     this.$nowPlaying.next(null);
+    this.isPausedSubject.next(true);
   }
 
 
