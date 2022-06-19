@@ -9,7 +9,7 @@ export class TrackService {
   private tracks = [];
   currentAudio: HTMLAudioElement;
   currentSource: string;
-  isPaused = false;
+  isPaused = true;
 
   constructor() {
     for (var i = 1; i <= 10; i++) {
@@ -32,13 +32,20 @@ export class TrackService {
   }
 
   play(source: string) {
-    if (source !== this.currentSource) {
-      this.currentAudio = new Audio(source);
+    if (this.isPaused) {
+      if (source !== this.currentSource) {
+        this.currentSource = source;
+        this.currentAudio = new Audio(source);
+      }
+      this.isPaused = false;
+      this.currentAudio.play();
+    } else {
+      this.pause();
     }
-    this.currentAudio.play();
   }
 
   pause() {
-
+    this.isPaused = true;
+    this.currentAudio.pause();
   }
 }
